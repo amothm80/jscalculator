@@ -1,5 +1,6 @@
 let memory = null;
 let lastOperation = null;
+let clearDisplay = false;
 
 function add(number) {
     memory += number;
@@ -19,6 +20,10 @@ function multiply(number){
 
 function showNumbers(input) {
   let result = document.querySelector("#result");
+  if (clearDisplay){
+    clearDisplay = false
+    result.innerText = '';
+  } 
   let resultContent = result.innerText;
   result.innerText = resultContent.concat(input);
 }
@@ -29,21 +34,23 @@ function processOperations(input) {
     switch (lastOperation) {
       case "+":
         add(resultContent);
-        result.innerText = '';
+        clearDisplay = true;
         break;
       case "-":
         subtract(resultContent);
-        result.innerText = '';
+        clearDisplay = true;
         break;
       case "*":
         multiply(resultContent);
-        result.innerText = '';
+        clearDisplay = true;
         break;
       case "/":
         divide(resultContent);
-        result.innerText = '';
+        clearDisplay = true;
         break;
     }
+  }else{
+    memory = resultContent;
   }
   if (input == "="){
     result.innerText = memory;
@@ -51,11 +58,10 @@ function processOperations(input) {
     lastOperation = null;
   }else{
     lastOperation = input;
-    memory = resultContent;
-    result.innerText = '';
+    result.innerText = memory;
+    clearDisplay = true;
   }
 
-  console.log(input);
 }
 
 function processButton(btn) {

@@ -1,0 +1,48 @@
+.calc-body {
+  display: flex;
+  border: black;
+  height: 400px;
+  width: 300px;
+  border-width: 5px;
+  flex-direction: column;
+  border-style: outset;
+}
+
+.LCD {
+  border: black;
+  height: 70px;
+  max-width: 100%;
+  border-width: 5px;
+  border-style: inset;
+  background-color: rgb(176, 226, 210);
+}
+
+.LCD p {
+  display: flex;
+  justify-content: right;
+  font-size: 40px;
+  margin: 0px;
+}
+
+.calc-buttons {
+  display: flex;
+  border-width: 1px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 2px;
+  gap: 1px;
+  justify-content: center;
+  background-color: gray;
+}
+
+.calcButton {
+  width: 72px;
+  height: 82px;
+  font-size: 40px;
+}
+
+#\= {
+  width: 145px;
+}
